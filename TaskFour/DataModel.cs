@@ -33,33 +33,46 @@ namespace TaskFour
 
         #endregion
 
+        private readonly Table<int> _table;
+
+        public DataModel()
+        {
+            _table = new Table<int>();
+        }
+
         /// <summary>
         /// Помещает значение в соответствующую ячейку
         /// </summary>
         /// <param name="row"></param>
         /// <param name="column"></param>
         /// <param name="value"></param>
-        void Put(int row, int column, int value)
+        public void Put(int row, int column, int value)
         {
-            throw new System.NotImplementedException();
+            _table[row, column] = value;
+
+            NotifyObserver();
         }
 
         /// <summary>
         /// Добавляет пустую строку по указанному индексу
         /// </summary>
         /// <param name="rowIndex"></param>
-        void InsertRow(int rowIndex)
+        public void InsertRow(int rowIndex)
         {
-            throw new System.NotImplementedException();
+            _table.InsertEmptyRow(rowIndex);
+
+            NotifyObserver();
         }
 
         /// <summary>
         /// Добавляет пустой столбец по указанному индексу
         /// </summary>
         /// <param name="columnIndex"></param>
-        void InsertColumn(int columnIndex)
+        public void InsertColumn(int columnIndex)
         {
-            throw new System.NotImplementedException();
+            _table.InsertEmptyColumn(columnIndex);
+
+            NotifyObserver();
         }
 
         /// <summary>
@@ -67,9 +80,9 @@ namespace TaskFour
         /// </summary>
         /// <param name="row"></param>
         /// <param name="column"></param>
-        object Get(int row, int column)
+        public int Get(int row, int column)
         {
-            throw new System.NotImplementedException();
+            return _table[row, column];
         }
     }
 }
