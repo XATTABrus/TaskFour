@@ -37,7 +37,7 @@ namespace TaskFour
 
         public DataModel()
         {
-            _table = new Table<int>();
+            _table = new Table<int>(2, 2);
         }
 
         /// <summary>
