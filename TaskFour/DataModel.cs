@@ -23,11 +23,11 @@ namespace TaskFour
             _observers.Remove(observer);
         }
 
-        public void NotifyObserver()
+        public void NotifyObserver(string message)
         {
             foreach (var observer in _observers)
             {
-                observer.Update();
+                observer.Update(message);
             }
         }
 
@@ -50,7 +50,7 @@ namespace TaskFour
         {
             _table[row, column] = value;
 
-            NotifyObserver();
+            NotifyObserver($"Добавлено значение \"{value}\" в {row} : {column}");
         }
 
         /// <summary>
@@ -61,7 +61,7 @@ namespace TaskFour
         {
             _table.InsertEmptyRow(rowIndex);
 
-            NotifyObserver();
+            NotifyObserver($"Добавлена новая строка по индексу {rowIndex}");
         }
 
         /// <summary>
@@ -72,7 +72,7 @@ namespace TaskFour
         {
             _table.InsertEmptyColumn(columnIndex);
 
-            NotifyObserver();
+            NotifyObserver($"Добавлена новая колонка по индексу {columnIndex}");
         }
 
         /// <summary>
