@@ -23,7 +23,7 @@ namespace TaskFour
             _observers.Remove(observer);
         }
 
-        public void NotifyObserver(string message)
+        private void NotifyObserver(string message)
         {
             foreach (var observer in _observers)
             {

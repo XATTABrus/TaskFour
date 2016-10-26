@@ -4,6 +4,5 @@
     {
         void AddObserver(IObserver observer);
         void RemoveObserver(IObserver observer);
-        void NotifyObserver(string message);
     }
 }
